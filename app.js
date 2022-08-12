@@ -4,11 +4,13 @@ function saveTask(e) {
 
     let title = document.getElementById("title").value;
     let description = document.getElementById("description").value;
+    let date= document.getElementById("date").value;
 
 
     const task = {
         title,
-        description
+        description,
+        date
     };
 
      if (localStorage.getItem("tasks") === null) {
@@ -38,10 +40,11 @@ function getTask () {
     for (let i = 0; i < tasks.length; i++) {
         let title = tasks[i].title;
         let description = tasks[i].description;
+        let date = tasks[i].date;
 
         tasksList.innerHTML += `<div class= "card mb-3">
           <div class="card-body">
-           <p> ${title} - ${description} </p>
+           <p> ${title} - ${description}-  ${date} </p>
            <a class="btn btn-danger" onclick = "deleteTask('${title}')">Borrar</a>
           </div>
         </div>`;
